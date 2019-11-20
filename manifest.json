@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Mmanifest",
+  "version": "0.1",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

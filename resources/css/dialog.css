@@ -1,0 +1,178 @@
+div {
+  margin: 5px;
+}
+
+.custlabel {
+  padding-left: 15px;  
+  font-family: sans-serif;  
+  font-size: 14px;  
+  font-weight: lighter;
+  white-space: nowrap;
+}
+
+table {
+  font-family: sans-serif;
+  font-size: 14px;
+  /*border-collapse: collapse; */
+  border: 1px solid black;
+  width: 100%;
+}
+
+.tdlabel {
+  border: none; 
+  float: right;
+  font-weight: lighter;
+  white-space: nowrap;
+}
+
+.tdlabelleft {
+  border: none; 
+  font-weight: lighter;
+  white-space: nowrap;
+}
+
+.tdfield {
+  border: none; 
+  font-weight: lighter;
+  white-space: nowrap;
+}
+
+table td,  #ausgabe1 th {
+  border: 1px solid gray;
+  padding: 2px;
+}
+
+table th {
+  border: 1px solid gray;  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: lightgray; 
+  color: black;
+  font-weight: 100;  
+}   
+.table2title {
+  border-top: none; 
+  border-bottom: none;
+}
+
+.table_bsueb tr td {
+  caption-side: top;
+  /* border-left: 1px solid black; */
+  /*border-right: 1px solid black;    */
+  padding: 0.2em 0.5em;
+}
+
+table#table_bsueb, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+colgroup {
+  text-align: center;
+}
+
+col {
+  text-align: left;
+}
+
+.ui-dialog-titlebar-minimize{
+  position:absolute;
+  right: 2em; 
+  top: 10%;
+  width: 19px;
+  margin: 5px 0 0 0;
+  padding: 1px;
+  height: 19px;
+}
+
+.myDialogClass {
+  position:absolute;
+  right: 3em; 
+  top: 10%;
+  width: 10px;
+  margin: -10px 0 0 0;
+  padding: 1px;
+  height: 10px;
+}
+
+.diabutton  {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  line-height: normal;
+  margin-right: .1em;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  overflow: visible; /* removes extra width in IE */
+  background-color: white; /* #F8A82B; */
+  background-image: none;
+  color: black; /* White; */
+  width: 80px;
+  height: 25px;
+}
+.ui-dialog-buttonpane {
+  height: 10px;
+}
+
+.msg-dialog {
+  background-color: white;  
+}
+.msg-dialog-titlebar {
+  background-color: #00e8ff;  
+}
+.msg-dialog-title {
+  background-color: #00e8ff;  
+}
+.msg-dialog-titlebar-close {
+  background-color: #00e8ff;  
+}
+.msg-dialog-content {
+  color: black;  
+}
+.msg-dialog-buttonpane {
+  background-color: lightblue;  
+  height: 50px;
+}
+.msg-dialog-buttonset {
+  background-color: lightblue;  
+}
+
+.highlight {
+  background-color: greenyellow;
+}
+
+.error {
+  background-color: red;  
+}
+
+.info {
+  background-color: white;  
+}
+
+.debug {
+  background-color: lightgray;  
+}
+
+.checkbox-inactive {
+  background: lightblue;  
+}
+
+.checkbox-active {
+  background: lightblue;  
+}
+
+.aktlstul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333333; */
+}
+.aktlstli {
+  float: left;
+  padding: 6px;
+  background-color: lightblue;
+  font-weight: bold;
+}      
