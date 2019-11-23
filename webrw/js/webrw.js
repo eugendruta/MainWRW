@@ -36,15 +36,13 @@ $(document).ready(function() {
         // Startzeit löschen
         localStorage.removeItem('starttime')
 
-        // Noch vorhanden Dialogeinträge löschen
+        // Noch vorhanden Dialogeinträge  closen
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i)
             let value = localStorage.getItem(key)
-                // Dialoge im localStorage löschen (egal welcher status )
             if (value === 'focus' || value === 'folge') {
                 localStorage.setItem(key, 'closed')
                 UTIL.logger(dialogname + ':  beforeunload(): key: ' + key + '; auf closed gesetzt')
-                    // localStorage.removeItem(key)
             }
         }
 
