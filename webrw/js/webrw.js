@@ -408,61 +408,21 @@ $(document).ready(function() {
                 $('<div class="content">')
                     .html(json.html)
                     .appendTo('body')
+
+                $('#navigatortbl').show()
+                $('#login').hide()
+
+                defaultDialogStarten();
             })
             .fail(function(xhr, status, errorThrown) {
                 alert('Sorry, there was a problem!')
                 console.log('Error: ' + errorThrown)
                 console.log('Status: ' + status)
+                return;
             })
             .always(function(xhr, status) {
                 // Request complete
             })
-
-        $('#navigatortbl').show()
-        $('#login').hide()
-
-        // Default Startdialog starten
-        var defdialog = globalconfig.startdialog
-        if (defdialog !== '') {
-            var eingetragen = localStorage.getItem(defdialog)
-            UTIL.logger(dialogname + ': login(): defaultstart: dialog: ' +
-                defdialog + ' localStorage eintrag: ' + eingetragen
-            )
-            if (!eingetragen) {
-                var left = 100 + Math.floor(Math.random() * 100 + 1) * 5
-                var top = 100 + Math.floor(Math.random() * 100 + 1) * 5
-                var _width = localStorage.getItem(defdialog + '.width')
-                _width = _width - _width / 120
-                var _height = localStorage.getItem(defdialog + '.height')
-                _height = _height - _height / 120
-                UTIL.logger(dialogname + ': login(): defaultstart: ' +
-                    defdialog + ';_width: ' + _width + '; _height: ' + _height
-                )
-                if (_width && _height) {
-                    var winProps = 'height=' + _height + ',width=' +
-                        _width + 'left=' + left + ',top=' + top
-                } else {
-                    var winProps = 'height=500,width=600,left=' + left + ',top=' + top
-                }
-
-                localStorage.setItem(defdialog, 'focus')
-                UTIL.logger(dialogname + ': login(): defaultstart:  defdialog: ' +
-                    defdialog + ' auf focus gesetzt'
-                )
-
-                var _firstupper = defdialog.substring(0, 1).toUpperCase()
-                    // var newWin = window.open("http://" + feserver + "/" + dianame + "/" + aktdialog + "/" + aktdialog + ".html", "_blank")
-                var url = 'http://' + feserver + '/' +
-                    _firstupper + defdialog.substring(1) +
-                    'WRW/' + defdialog + '/' +
-                    defdialog + '.html'
-                UTIL.logger('url: ' + url)
-                var newWin = window.open(url, '_blank')
-                UTIL.logger(
-                    dialogname + ': login(): defaultstart: ' + newWin.name + ' gestartet'
-                )
-            }
-        }
 
         /*
          //tree_json: [{"name":"Administration", "is_open":true, "children":[{"name":"ADUEB: Administration-Übersicht"},
@@ -477,6 +437,51 @@ $(document).ready(function() {
          UTIL.logger(dialogname + '; login(): state.open_nodes.length: ' + state.open_nodes.length
          + '; state.selected_node.length: ' + state.selected_node.length);F     
          */
+    }
+
+    defaultDialogStarten = function() {
+        // Default Startdialog starten
+        var defdialog = globalconfig.startdialog
+        if (defdialog !== '') {
+            var eingetragen = localStorage.getItem(defdialog)
+            UTIL.logger(dialogname + ': defaultDialogStarten(): defaultstart: dialog: ' +
+                defdialog + ' localStorage eintrag: ' + eingetragen
+            )
+            if (!eingetragen) {
+                var left = 100 + Math.floor(Math.random() * 100 + 1) * 5
+                var top = 100 + Math.floor(Math.random() * 100 + 1) * 5
+                var _width = localStorage.getItem(defdialog + '.width')
+                _width = _width - _width / 120
+                var _height = localStorage.getItem(defdialog + '.height')
+                _height = _height - _height / 120
+                UTIL.logger(dialogname + ': defaultDialogStarten(): defaultstart: ' +
+                    defdialog + ';_width: ' + _width + '; _height: ' + _height
+                )
+                if (_width && _height) {
+                    var winProps = 'height=' + _height + ',width=' +
+                        _width + 'left=' + left + ',top=' + top
+                } else {
+                    var winProps = 'height=500,width=600,left=' + left + ',top=' + top
+                }
+
+                localStorage.setItem(defdialog, 'focus')
+                UTIL.logger(dialogname + ': defaultDialogStarten(): defaultstart:  defdialog: ' +
+                    defdialog + ' auf focus gesetzt'
+                )
+
+                var _firstupper = defdialog.substring(0, 1).toUpperCase()
+                    // var newWin = window.open("http://" + feserver + "/" + dianame + "/" + aktdialog + "/" + aktdialog + ".html", "_blank")
+                var url = 'http://' + feserver + '/' +
+                    _firstupper + defdialog.substring(1) +
+                    'WRW/' + defdialog + '/' +
+                    defdialog + '.html'
+                UTIL.logger(dialogname + ': defaultDialogStarten(): url: ' + url)
+                var newWin = window.open(url, '_blank')
+                UTIL.logger(
+                    dialogname + ': defaultDialogStarten(): defaultstart: ' + newWin.document.title + ' gestartet'
+                )
+            }
+        }
     }
 
     // Devicedaten speichern
