@@ -415,10 +415,8 @@ $(document).ready(function() {
                 defaultDialogStarten();
             })
             .fail(function(xhr, status, errorThrown) {
-                alert('Sorry, there was a problem!')
-                console.log('Error: ' + errorThrown)
-                console.log('Status: ' + status)
-                return;
+                alert('Login failed (Server down)')
+                console.log('Error: ' + errorThrown + '; Status: ' + status)
             })
             .always(function(xhr, status) {
                 // Request complete
