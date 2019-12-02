@@ -401,13 +401,8 @@ $(document).ready(function() {
                 dataType: 'json'
             })
             .done(function(json) {
-                UTIL.logger(dialogname + ': login(): Ajax Request OK')
-                $('<h1>')
-                    .text(json.title)
-                    .appendTo('body')
-                $('<div class="content">')
-                    .html(json.html)
-                    .appendTo('body')
+                UTIL.logger(dialogname + ': login(): Ajax Request OK: json: ' +
+                    json.data[0])
 
                 $('#navigatortbl').show()
                 $('#login').hide()
