@@ -403,7 +403,6 @@ $(document).ready(function() {
               return
             }     
             */
-		//var url = bckendurl + "login?benutzer=" + benutzer + "&kennwort=" + kennwort;
 		var url = bckendurl + "login";
 		UTIL.logger(
 			dialogname +
