@@ -430,6 +430,83 @@ $(document).ready(function() {
 				$('<div class="content">')
 					.html(json.html)
 					.appendTo("body");
+
+				$("#navigatortbl").show();
+				$("#login").hide();
+
+				// Default Startdialog starten
+				var defdialog = globalconfig.startdialog;
+				if (defdialog !== "") {
+					var eingetragen = localStorage.getItem(defdialog);
+					UTIL.logger(
+						dialogname +
+							": login(): defaultstart: dialog: " +
+							defdialog +
+							" localStorage eintrag: " +
+							eingetragen
+					);
+					if (!eingetragen) {
+						var left = 100 + Math.floor(Math.random() * 100 + 1) * 5;
+						var top = 100 + Math.floor(Math.random() * 100 + 1) * 5;
+						var _width = localStorage.getItem(defdialog + ".width");
+						_width = _width - _width / 120;
+						var _height = localStorage.getItem(defdialog + ".height");
+						_height = _height - _height / 120;
+						UTIL.logger(
+							dialogname +
+								": login(): defaultstart: " +
+								defdialog +
+								";_width: " +
+								_width +
+								"; _height: " +
+								_height
+						);
+						if (_width && _height) {
+							var winProps =
+								"height=" +
+								_height +
+								",width=" +
+								_width +
+								"left=" +
+								left +
+								",top=" +
+								top;
+						} else {
+							var winProps =
+								"height=500,width=600,left=" + left + ",top=" + top;
+						}
+
+						localStorage.setItem(defdialog, "focus");
+						UTIL.logger(
+							dialogname +
+								": login(): defaultstart:  defdialog: " +
+								defdialog +
+								" auf focus gesetzt"
+						);
+
+						var _firstupper = defdialog.substring(0, 1).toUpperCase();
+						// var newWin = window.open("http://" + feserver + "/" + dianame + "/" + aktdialog + "/" + aktdialog + ".html", "_blank")
+						var url =
+							"http://" +
+							feserver +
+							"/" +
+							_firstupper +
+							defdialog.substring(1) +
+							"WRW/" +
+							defdialog +
+							"/" +
+							defdialog +
+							".html";
+						UTIL.logger("url: " + url);
+						var newWin = window.open(url, "_blank");
+						UTIL.logger(
+							dialogname +
+								": login(): defaultstart: " +
+								newWin.name +
+								" gestartet"
+						);
+					}
+				}
 			})
 			.fail(function(xhr, status, errorThrown) {
 				alert("Sorry, there was a problem!");
@@ -439,79 +516,6 @@ $(document).ready(function() {
 			.always(function(xhr, status) {
 				// Request complete
 			});
-
-		$("#navigatortbl").show();
-		$("#login").hide();
-
-		// Default Startdialog starten
-		var defdialog = globalconfig.startdialog;
-		if (defdialog !== "") {
-			var eingetragen = localStorage.getItem(defdialog);
-			UTIL.logger(
-				dialogname +
-					": login(): defaultstart: dialog: " +
-					defdialog +
-					" localStorage eintrag: " +
-					eingetragen
-			);
-			if (!eingetragen) {
-				var left = 100 + Math.floor(Math.random() * 100 + 1) * 5;
-				var top = 100 + Math.floor(Math.random() * 100 + 1) * 5;
-				var _width = localStorage.getItem(defdialog + ".width");
-				_width = _width - _width / 120;
-				var _height = localStorage.getItem(defdialog + ".height");
-				_height = _height - _height / 120;
-				UTIL.logger(
-					dialogname +
-						": login(): defaultstart: " +
-						defdialog +
-						";_width: " +
-						_width +
-						"; _height: " +
-						_height
-				);
-				if (_width && _height) {
-					var winProps =
-						"height=" +
-						_height +
-						",width=" +
-						_width +
-						"left=" +
-						left +
-						",top=" +
-						top;
-				} else {
-					var winProps = "height=500,width=600,left=" + left + ",top=" + top;
-				}
-
-				localStorage.setItem(defdialog, "focus");
-				UTIL.logger(
-					dialogname +
-						": login(): defaultstart:  defdialog: " +
-						defdialog +
-						" auf focus gesetzt"
-				);
-
-				var _firstupper = defdialog.substring(0, 1).toUpperCase();
-				// var newWin = window.open("http://" + feserver + "/" + dianame + "/" + aktdialog + "/" + aktdialog + ".html", "_blank")
-				var url =
-					"http://" +
-					feserver +
-					"/" +
-					_firstupper +
-					defdialog.substring(1) +
-					"WRW/" +
-					defdialog +
-					"/" +
-					defdialog +
-					".html";
-				UTIL.logger("url: " + url);
-				var newWin = window.open(url, "_blank");
-				UTIL.logger(
-					dialogname + ": login(): defaultstart: " + newWin.name + " gestartet"
-				);
-			}
-		}
 	};
 
 	// Devicedaten speichern
