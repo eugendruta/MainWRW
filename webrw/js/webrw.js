@@ -415,9 +415,10 @@ $(document).ready(function() {
 		);
 
 		// Using the core $.ajax() method
+		var _data = { benutzer: benutzer, kennwort: kennwort };
 		$.ajax({
 			url: url,
-			data: { benutzer: benutzer, kennwort: kennwort },
+			data: _data,
 			type: "POST",
 			dataType: "json"
 		})
