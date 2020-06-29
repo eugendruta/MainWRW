@@ -186,7 +186,7 @@ $(document).ready(function () {
     );
     if (ipadresse === null) {
       // IP-Adresse und PC-name noch nicht in localstorage eingetragen
-      UTIL.showMessage("Bitte IP-Adresse und PC-Name eingeben", "info");
+      UTIL.showMessage(dialogname, "Bitte IP-Adresse und PC-Name eingeben", "info");
       // Eingabefelder und Button aktivieren
       // Button show; eingabefelder enablen
       $("#ipadresse").prop("disabled", false);
@@ -403,7 +403,7 @@ $(document).ready(function () {
     var kennwort = $("#kennwort").val();
 		/*
             if (UTIL.isEmpty(kennwort)) {
-              UTIL.showMessage('Bitte Kennwort eingeben', 'error')
+              UTIL.showMessage(dialogname, 'Bitte Kennwort eingeben', 'error');
               return
             }     
             */
