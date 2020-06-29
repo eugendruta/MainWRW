@@ -1,7 +1,7 @@
 $(document).ready(function () {
   dialogname = "webrw";
   UTIL.logger(dialogname + ": ready(): Start; startdialog: " + globalconfig.startdialog);
-  UTIL.showMessage(Dialogname, 'Test', 'info');
+  //UTIL.showMessage(dialogname, 'Test', 'info');
 
   if (window.WebSocket) {
     UTIL.logger("window.WebSocket: supported");
